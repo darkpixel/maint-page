@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "proxywrap": "^0.2.0"
+    "findhit-proxywrap": "^0.3.13",
+    "morgan": "^1.10.0"
   },
   "name": "maint-page",
   "version": "0.0.1",
