@@ -9,7 +9,7 @@ var srv = proxiedHttp.createServer(app)
 
 app.use(morgan('combined'))
 app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.send('Hello World!')
 })
 
