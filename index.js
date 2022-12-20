@@ -1,11 +1,14 @@
-const express = require('express')
-const app = express()
+var http = require('http')
+var proxiedHttp = require('proxywrap').proxy(http)
+var express = require('express')
+var app = express()
+var srv = proxiedHttp.createServer(app);
 const port = 3000
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
+srv.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
