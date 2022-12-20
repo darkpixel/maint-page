@@ -1,9 +1,12 @@
+var morgan = require('morgan')
 var http = require('http')
 var proxiedHttp = require('proxywrap').proxy(http)
 var express = require('express')
 var app = express()
 var srv = proxiedHttp.createServer(app);
 const port = 3000
+
+app.use(morgan('combined'))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
