@@ -1,17 +1,14 @@
 var morgan = require('morgan')
-var http = require('http')
-var proxiedHttp = require('proxywrap').proxy(http)
-var express = require('express')
-var app = express()
-var srv = proxiedHttp.createServer(app);
+const express = require('express')
+const app = express()
 const port = 3000
 
 app.use(morgan('combined'))
-
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-srv.listen(port, () => {
+app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
