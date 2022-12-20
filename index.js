@@ -5,7 +5,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-//var srv = proxiedHttp.createServer(app)
+var srv = proxiedHttp.createServer(app)
 
 app.use(morgan('combined'))
 app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal'])
